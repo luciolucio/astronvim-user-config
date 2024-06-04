@@ -1,5 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
@@ -41,7 +39,7 @@ return {
 
   -- Multiple Cursors
   -- `gm` VM_Leader set in astrocore plugin
-  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  -- { import = "astrocommunity.editing-support.vim-visual-multi" },
 
   -- Distraction free editing
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
