@@ -12,5 +12,12 @@
       ";; ---------------------------------------------------------\n;; ${1:Section title}\n\n$0\n\n\n;; End of $1\n;; ---------------------------------------------------------\n\n"
     ],
     "description": "Comment Header"
+  },
+  "ppr": {
+    "prefix": "pprint",
+    "body": [
+      "(clojure.pprint/pprint {${0}})"
+    ],
+    "description": "Clojure pprint"
   }
 }

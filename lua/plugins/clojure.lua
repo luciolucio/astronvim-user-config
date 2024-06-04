@@ -12,8 +12,6 @@
 -- before using this configuration
 -- ------------------------------------------
 
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Local variables
 -- Language filetypes for plugins
 local lisp_dialects = { "clojure", "fennel" }
@@ -27,6 +25,11 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clojure_lsp" })
     end,
+  },
+  {
+    "k13gomez/cmp-clojure-deps",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = "json",
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -150,7 +153,8 @@ return {
   -- },
   -- REPL workflow with Conjure
   {
-    "Olical/conjure",
+    --"Olical/conjure",
+    "luciolucio/conjure",
     -- load plugin on filetypes
     filetype = lisp_dialects,
     dependencies = {
