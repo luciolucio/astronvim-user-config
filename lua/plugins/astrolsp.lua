@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -12,7 +10,7 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = true, -- enable or disable auto formatting on start
+      autoformat = false, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
       inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
@@ -21,7 +19,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -85,6 +83,15 @@ return {
     mappings = {
       n = {
         gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+
+        ["<localleader>ca"] = { "<cmd>ConjureShadowSelect app<cr>", desc = "Connect to shadow-cljs :app" },
+        ["<localleader>cb"] = { "<cmd>ConjureShadowSelect browser-repl<cr>", desc = "Connect to shadow-cljs browser-repl" },
+
+        ["<localleader>ct"] = { "<cmd>ConjureEval (do (require 'portal.api) (portal.api/open) (add-tap #'portal.api/submit) (add-tap #'clojure.pprint/pprint))<cr>", desc = "Open portal" },
+
+        -- Error navigation
+        ["<F12>"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
+        ["<F11>"] = { function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {
         --   function() vim.lsp.buf.declaration() end,

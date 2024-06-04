@@ -4,8 +4,6 @@
 -- Shows image using OS image viewer
 -- ------------------------------------------
 
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 ---@type LazySpec
 return {
   -- PlantUMl via external tool - key mapping
@@ -28,6 +26,8 @@ return {
             ':silent exec "!/usr/bin/java -jar ~/.local/share/plantuml/current.jar % && open %:s,clj,png,"<CR>',
             desc = "UML diagram",
           },
+          ["<Leader>lr"] = {
+            ':silent exec "!osascript /Users/lucioprado.deassis/.cmd/refresh-preview.scpt"<CR>', desc = "Refresh Preview" },
         },
       },
     },
